@@ -47,10 +47,13 @@ def get_points(nrzm, bits):
 
 	for bit in nrzm:
 		for i in range(0,55):
-			aux.append(int(bit))		
+			if int(bit) != 1:
+				aux.append(-1)		
+			else:
+				aux.append(1)		
 
 	plt.plot(range(len(aux)), aux, linestyle='-', color='r', linewidth=2.0)
-	plt.axis([-1,len(aux),-1,2])
+	plt.axis([-1,len(aux),-4,4])
 	plt.suptitle("nrzM - " + bits, fontsize=16)
 	plt.title("Result - " + nrzm)
 	plt.show()
