@@ -1,12 +1,12 @@
 import matplotlib.pyplot as plt
 
-def mrz(bits):	
+def nrz(bits):	
 	result = ''
 	for bit in bits:
 		result += bit
 	return result
 
-def mrz_m(bits):
+def nrz_m(bits):
 	result = ''
 	bit_vez = '0'
 	for bit in bits:
@@ -41,23 +41,23 @@ def write(bits):
 	print(signal)
 
 
-def get_points(mrzm, bits):
+def get_points(nrzm, bits):
 	aux = []
 	ant = 0
 
-	for bit in mrzm:
+	for bit in nrzm:
 		for i in range(0,55):
 			aux.append(int(bit))		
 
 	plt.plot(range(len(aux)), aux, linestyle='-', color='r', linewidth=2.0)
 	plt.axis([-1,len(aux),-1,2])
-	plt.suptitle("MRZM - " + bits, fontsize=16)
-	plt.title("Result - " + mrzm)
+	plt.suptitle("nrzM - " + bits, fontsize=16)
+	plt.title("Result - " + nrzm)
 	plt.show()
 
 
 def main():
-	print("\nMRZ-M\n")
+	print("\nnrz-M\n")
 	while True:
 		bits = input("Informe 16 Bits: ")
 		if len(bits) == 16:
@@ -68,14 +68,14 @@ def main():
 
 
 	
-	print('\nMRZ')
-	print(mrz(bits))
-	write(mrz(bits))
-	print('\nMRZ-M')
-	print(mrz_m(bits)) 
-	write(mrz_m(bits))
+	print('\nnrz')
+	print(nrz(bits))
+	write(nrz(bits))
+	print('\nnrz-M')
+	print(nrz_m(bits)) 
+	write(nrz_m(bits))
 
-	get_points(mrz_m(bits), bits)
+	get_points(nrz_m(bits), bits)
 
 
 if __name__ == "__main__":
